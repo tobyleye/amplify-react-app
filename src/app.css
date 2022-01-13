@@ -1,0 +1,17 @@
+.root {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 2rem;
+    padding: 4rem;
+}
+
+.root nav{
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+}
+
+.select-app{
+    text-align: center;
+    padding: 10rem 0;
+    font-size: 25px;
+}
