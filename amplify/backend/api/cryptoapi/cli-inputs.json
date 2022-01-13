@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/coins": {
+      "name": "/coins",
+      "lambdaFunction": "cryptofunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
