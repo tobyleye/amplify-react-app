@@ -1,6 +1,7 @@
-import { BrowserRouter, Switch, Route, Link,Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import CoinsApp from "./apps/coins";
-import "./app.css"
+import NotesApp from "./apps/notes";
+import "./app.css";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
               <li>
                 <Link to="/coins">Coins</Link>
               </li>
+              <li>
+                <Link to="/notes">Notes</Link>
+              </li>
             </ul>
           </nav>
 
@@ -21,9 +25,15 @@ function App() {
               <Route path="/coins">
                 <CoinsApp />
               </Route>
-              <Route path="/" exact> 
+              <Route path="/notes">
+                <NotesApp />
+              </Route>
+              <Route path="/" exact>
                 <div className="select-app">
-                    <p>No app selected. <br />Click on any link on the side nav to view</p>
+                  <p>
+                    No app selected. <br />
+                    Click on any link on the side nav to view
+                  </p>
                 </div>
               </Route>
               <Redirect from="*" to="/" />
