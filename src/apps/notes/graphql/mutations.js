@@ -1,18 +1,8 @@
-export const addNote = `
-    mutation addNote(
-        $id: String!
-        $name: String!
-        $description: String!
-        $clientId: String
-        $completed: Boolean
+export const createNote = `
+    mutation createNote(
+       $input: CreateNoteInput!
     ) {
-        createNote(input: {
-            id: $id
-            name: $name
-            description: $description
-            clientId: $clientId
-            completed: $completed
-        }) {
+        createNote(input: $input) {
             name,
             completed
         }
@@ -20,11 +10,9 @@ export const addNote = `
 `
 
 export const deleteNote = `
-    mutation deleteNote($id: String!) {
-        deleteNote(input: {
-            id: $id
-        }) {
-            id,
+    mutation deleteNote($input: DeleteNoteInput! ) {
+        deleteNote(input: $input) {
+            id
         }
     }
 `

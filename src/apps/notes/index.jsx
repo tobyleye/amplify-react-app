@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { List, Input, Button } from "antd";
 import "antd/dist/antd.css";
 import { v4 as uuid } from "uuid";
-import { addNote, deleteNote } from "./graphql/mutations";
+import { createNote, deleteNote } from "./graphql/mutations";
 import { onCreateNote } from "./graphql/subscriptions";
 
 export default function NotesApp() {
@@ -45,10 +45,13 @@ export default function NotesApp() {
   }, []);
 
   function onDeleteNote(note) {
+      console.log('deleting note',note)
     API.graphql({
       query: deleteNote,
       variables: {
-        id: note.id,
+        input: {
+          id: note.id,
+        },
       },
     })
       .then(() => {
@@ -61,7 +64,7 @@ export default function NotesApp() {
 
   return (
     <div>
-      <h3>notes api</h3>
+      <h3>Notes app</h3>
       <List
         style={{
           marginBottom: 50,
@@ -114,9 +117,9 @@ function AddTodoForm() {
     };
 
     API.graphql({
-      query: addNote,
+      query: createNote,
       variables: {
-        ...note,
+        input: note,
       },
     })
       .then(() => {

@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import CoinsApp from "./apps/coins";
 import NotesApp from "./apps/notes";
+import BasicAuth from "./apps/basic-auth"
 import "./app.css";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
               <li>
                 <Link to="/notes">Notes</Link>
               </li>
+              <li>
+                <Link to="/basic-auth">Auth Example</Link>
+              </li>
             </ul>
           </nav>
 
@@ -27,6 +31,9 @@ function App() {
               </Route>
               <Route path="/notes">
                 <NotesApp />
+              </Route>
+              <Route path="/basic-auth">
+                <BasicAuth />
               </Route>
               <Route path="/" exact>
                 <div className="select-app">
