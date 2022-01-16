@@ -1,8 +1,9 @@
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import CoinsApp from "./apps/coins";
 import NotesApp from "./apps/notes";
-import BasicAuth from "./apps/basic-auth"
+import BasicAuth from "./apps/basic-auth/controlled";
 import "./app.css";
+import S3trigger from "./apps/s3trigger";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
               <li>
                 <Link to="/basic-auth">Auth Example</Link>
               </li>
+              <li>
+                <Link to="/s3-trigger">S3 trigger Example</Link>
+              </li>
             </ul>
           </nav>
 
@@ -34,6 +38,9 @@ function App() {
               </Route>
               <Route path="/basic-auth">
                 <BasicAuth />
+              </Route>
+              <Route path="/s3-trigger">
+                <S3trigger />
               </Route>
               <Route path="/" exact>
                 <div className="select-app">

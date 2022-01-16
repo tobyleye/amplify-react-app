@@ -16,10 +16,15 @@
         "cryptofunction": {
           "deploymentBucketName": "amplify-amplifyapp-dev-235550-deployment",
           "s3Key": "amplify-builds/cryptofunction-52462b556e6953343669-build.zip"
+        },
+        "S3Trigger676d5399": {
+          "deploymentBucketName": "amplify-amplifyapp-dev-235550-deployment",
+          "s3Key": "amplify-builds/S3Trigger676d5399-6f674936653656457447-build.zip"
         }
       },
       "auth": {
-        "amplifyapp86a1f49b": {}
+        "amplifyapp86a1f49b": {},
+        "true": {}
       }
     }
   }

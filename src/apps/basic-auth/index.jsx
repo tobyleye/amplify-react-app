@@ -1,14 +1,26 @@
-import { useRouteMatch, Switch, Route } from "react-router-dom";
-import Profile from "./profile";
-import Nav from "./nav";
+import { useRouteMatch, Switch, Route, Link } from "react-router-dom";
+import Controlled from "./controlled";
+import Custom from "./custom";
 
 export default function Index() {
-  let { path } = useRouteMatch();
+  let { path, url } = useRouteMatch();
   return (
     <div>
-      <Nav />
+      <ul
+        style={{
+          marginBottom: 40,
+        }}
+      >
+        <li>
+          <Link to={url + "/controlled"}>controlled example</Link>
+        </li>
+        <li>
+          <Link to={url + "/custom"}>custom example</Link>
+        </li>
+      </ul>
       <Switch>
-        <Route path={path + "/profile"} component={Profile} />
+        <Route path={path + "/controlled"} component={Controlled} />
+        <Route path={path + "/custom"} component={Custom} />
       </Switch>
     </div>
   );
