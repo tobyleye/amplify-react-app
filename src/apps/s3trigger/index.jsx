@@ -7,7 +7,6 @@ export default function () {
 
   let fetchImages = async () => {
     let files = await Storage.list("");
-    console.log("[fetchImages] files = ", files);
 
     let signedFiles = await Promise.all(
       files.map(async (file) => {
@@ -42,6 +41,9 @@ export default function () {
             key={index}
             style={{
               width: 200,
+              display: 'inline-block',
+              margin: 10,
+              borderRadius: 5
             }}
           />
         );

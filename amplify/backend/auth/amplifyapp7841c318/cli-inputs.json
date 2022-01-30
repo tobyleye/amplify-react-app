@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "amplifyapp86a1f49b_identitypool_86a1f49b",
+    "identityPoolName": "amplifyapp7841c318_identitypool_7841c318",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "amplif86a1f49b",
-    "userPoolName": "amplifyapp86a1f49b_userpool_86a1f49b",
+    "resourceNameTruncated": "amplif7841c318",
+    "userPoolName": "amplifyapp7841c318_userpool_7841c318",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,15 +31,17 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "amplif86a1f49b_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplif7841c318_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "86a1f49b",
-    "resourceName": "amplifyapp86a1f49b",
+    "sharedId": "7841c318",
+    "resourceName": "amplifyapp7841c318",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
-    "usernameAttributes": [
-      "email"
-    ],
+    "triggers": {
+      "PostConfirmation": [
+        "add-to-group"
+      ]
+    },
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
@@ -57,6 +59,22 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "amplifyapp7841c318PostConfirmation",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "permissions": [
+      "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
+    ],
+    "authTriggerConnections": [
+      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"amplifyapp7841c318PostConfirmation\"}"
+    ]
   }
 }

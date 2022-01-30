@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "auth": {
+      "amplifyapp7841c318": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "product": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
