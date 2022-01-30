@@ -60,10 +60,8 @@ const getGroupForUser = async (event) => {
     UserPoolId: userPoolId,
     Username: user.Username,
   };
-  const groupData = await cognito
-    .adminListGroupsForUsers(groupParams)
-    .promise();
-  console.log('---group data---', groupData)
+  const groupData = await cognito.adminListGroupsForUser(groupParams).promise();
+  console.log("---group data---", groupData);
   return groupData;
 };
 
@@ -117,7 +115,7 @@ app.post("/products", async function (req, res) {
       TableName: ddb_table_name,
       Item: input,
     };
-    await docClient.put(params).save();
+    await docClient.put(params).promise()
     res.json({ success: "item saved successfully" });
   } catch (err) {
     res.json({ error: err });
